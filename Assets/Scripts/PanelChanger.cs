@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PanelChanger : MonoBehaviour
 {
+  public GameObject rightArrow;
+  public GameObject leftArrow;
+  public GameObject backArrow;
   enum Panel
   {
     Panel0,
@@ -18,6 +21,19 @@ public class PanelChanger : MonoBehaviour
   }
   // 列挙型のため、デフォルト値のPanel0が最初に入る
   Panel currentPanel;
+
+  private void Start()
+  {
+    // currentPanelを設定(列挙型で自動的に入ってるけど一応記載)
+    Show(Panel.Panel0);
+  }
+
+  void HideArrows()
+  {
+    rightArrow.SetActive(false);
+    leftArrow.SetActive(false);
+    backArrow.SetActive(false);
+  }
 
   public void OnRightButton()
   {
@@ -100,34 +116,46 @@ public class PanelChanger : MonoBehaviour
 
   void Show(Panel panel)
   {
+    HideArrows();
     currentPanel = panel;
     switch (panel)
     {
       case Panel.Panel0:
+        rightArrow.SetActive(true);
         transform.localPosition = new Vector2(0, 0);
         break;
       case Panel.Panel1:
+        rightArrow.SetActive(true);
+        leftArrow.SetActive(true);
         transform.localPosition = new Vector2(-1000, 0);
         break;
       case Panel.Panel2:
+        leftArrow.SetActive(true);
         transform.localPosition = new Vector2(-2000, 0);
         break;
       case Panel.Panel3:
+        backArrow.SetActive(true);
         transform.localPosition = new Vector2(0, 1500);
         break;
       case Panel.Panel4:
+        backArrow.SetActive(true);
         transform.localPosition = new Vector2(-1000, 1500);
         break;
       case Panel.Panel5:
+        backArrow.SetActive(true);
         transform.localPosition = new Vector2(-2000, 1500);
         break;
       case Panel.Panel6:
+        rightArrow.SetActive(true);
         transform.localPosition = new Vector2(0, 3000);
         break;
       case Panel.Panel7:
+        rightArrow.SetActive(true);
+        leftArrow.SetActive(true);
         transform.localPosition = new Vector2(-1000, 3000);
         break;
       case Panel.Panel8:
+        leftArrow.SetActive(true);
         transform.localPosition = new Vector2(-2000, 3000);
         break;
 
