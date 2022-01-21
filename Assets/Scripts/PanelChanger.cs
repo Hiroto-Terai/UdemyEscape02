@@ -47,7 +47,32 @@ public class PanelChanger : MonoBehaviour
   }
   public void OnBackButton()
   {
+  }
 
+  public void OnLocker()
+  {
+    Show(Panel.Panel3);
+  }
+
+  public void OnPig()
+  {
+    Show(Panel.Panel4);
+
+  }
+
+  public void OnBucket()
+  {
+    Show(Panel.Panel5);
+  }
+
+  public void OnHallIn()
+  {
+    Show(Panel.Panel6);
+  }
+
+  public void OnHallOut()
+  {
+    Show(Panel.Panel2);
   }
 
   void Show(Panel panel)
