@@ -21,7 +21,6 @@ public class PanelChanger : MonoBehaviour
 
   public void OnRightButton()
   {
-    Debug.Log(currentPanel);
     switch (currentPanel)
     {
       case Panel.Panel0:
@@ -29,6 +28,12 @@ public class PanelChanger : MonoBehaviour
         break;
       case Panel.Panel1:
         Show(Panel.Panel2);
+        break;
+      case Panel.Panel6:
+        Show(Panel.Panel7);
+        break;
+      case Panel.Panel7:
+        Show(Panel.Panel8);
         break;
     }
   }
@@ -42,11 +47,29 @@ public class PanelChanger : MonoBehaviour
       case Panel.Panel2:
         Show(Panel.Panel1);
         break;
+      case Panel.Panel7:
+        Show(Panel.Panel6);
+        break;
+      case Panel.Panel8:
+        Show(Panel.Panel7);
+        break;
     }
 
   }
   public void OnBackButton()
   {
+    switch (currentPanel)
+    {
+      case Panel.Panel3:
+        Show(Panel.Panel0);
+        break;
+      case Panel.Panel4:
+        Show(Panel.Panel1);
+        break;
+      case Panel.Panel5:
+        Show(Panel.Panel2);
+        break;
+    }
   }
 
   public void OnLocker()
