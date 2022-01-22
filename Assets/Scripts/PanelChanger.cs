@@ -104,12 +104,12 @@ public class PanelChanger : MonoBehaviour
     Show(Panel.Panel5);
   }
 
-  public void OnHallIn()
+  public void OnHoleIn()
   {
     Show(Panel.Panel6);
   }
 
-  public void OnHallOut()
+  public void OnHoleOut()
   {
     Show(Panel.Panel2);
   }
