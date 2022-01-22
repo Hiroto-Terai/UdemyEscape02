@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class DialLocker : MonoBehaviour
 {
@@ -21,8 +22,12 @@ public class DialLocker : MonoBehaviour
   // 現在のマーク
   Mark[] currentMarks = { Mark.Maru, Mark.Maru, Mark.Maru };
 
+  Mark[] correctMarks = { Mark.Maru, Mark.Sankaku, Mark.Hoshi };
+
   // 表示する画像の素材一覧
   public Sprite[] resourceSprite;
+
+  public UnityEvent ClearEvent;
 
   public void OnMarkButton(int position)
   {
@@ -54,11 +59,20 @@ public class DialLocker : MonoBehaviour
 
   bool IsAllClearMark()
   {
+    for (int i = 0; i < currentMarks.Length; i++)
+    {
+      if (currentMarks[i] != correctMarks[i])
+      {
+        // 1つでも違うものがあればクリアではない
+        return false;
+      }
+    }
     return true;
   }
 
   void Clear()
   {
-
+    Debug.Log("ロッカーが開いた");
+    ClearEvent.Invoke();
   }
 }
