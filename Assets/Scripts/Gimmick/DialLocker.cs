@@ -72,7 +72,6 @@ public class DialLocker : MonoBehaviour
 
   void Clear()
   {
-    Debug.Log("ロッカーが開いた");
     ClearEvent.Invoke();
   }
 }
