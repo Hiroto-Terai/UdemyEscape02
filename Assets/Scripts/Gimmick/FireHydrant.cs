@@ -55,6 +55,7 @@ public class FireHydrant : MonoBehaviour
   {
     // ユーザの入力リセット
     userInputs.Clear();
+    Debug.Log("リセット");
   }
 
   bool IsAllClear()

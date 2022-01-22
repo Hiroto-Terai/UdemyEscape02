@@ -15,7 +15,7 @@ public class BreakblePig : MonoBehaviour
     if (hasHammer)
     {
       Break();
-      ItemBox.instance.UseItem(ItemManager.Item.Key);
+      ItemBox.instance.UseItem(ItemManager.Item.Hammer);
 
     }
     else
