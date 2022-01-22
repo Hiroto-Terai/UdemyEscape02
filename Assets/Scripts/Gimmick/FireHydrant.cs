@@ -47,6 +47,7 @@ public class FireHydrant : MonoBehaviour
       else
       {
         // 不一致の場合、リセットする
+        ResetInput();
       }
     }
   }
