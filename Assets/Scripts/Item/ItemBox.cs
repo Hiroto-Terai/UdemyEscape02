@@ -18,7 +18,11 @@ public class ItemBox : MonoBehaviour
 
   private void Start()
   {
-    SetItem(ItemManager.Item.Leaf);
+    // 最初に全てのアイテムを非表示
+    for (int i = 0; i < boxes.Length; i++)
+    {
+      boxes[i].SetActive(false);
+    }
   }
 
   public void SetItem(ItemManager.Item item)

@@ -10,6 +10,14 @@ public class ItemManager : MonoBehaviour
     Key,
     Card,
     Hammer,
-    Paper,
+    HintCard,
+  }
+  public Item item;
+
+  // クリックされた時に消す、アイテムBOXに追加する
+  public void OnThis()
+  {
+    gameObject.SetActive(false);
+    ItemBox.instance.SetItem(item);
   }
 }
