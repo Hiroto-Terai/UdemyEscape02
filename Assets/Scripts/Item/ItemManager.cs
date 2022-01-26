@@ -11,6 +11,7 @@ public class ItemManager : MonoBehaviour
     Card,
     Hammer,
     HintCard,
+    Max,
   }
   public Item item;
 
