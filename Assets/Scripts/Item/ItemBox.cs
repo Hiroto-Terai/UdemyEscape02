@@ -29,6 +29,7 @@ public class ItemBox : MonoBehaviour
   {
     int index = (int)item;
     boxes[index].SetActive(true);
+    SaveManager.instance.SetGetItemFlag(item);
   }
 
   public bool CanUseItem(ItemManager.Item item)

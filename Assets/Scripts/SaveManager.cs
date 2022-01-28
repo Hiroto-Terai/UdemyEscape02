@@ -6,7 +6,17 @@ using UnityEngine;
 public class SaveManager : MonoBehaviour
 {
   const string SAVE_KEY = "SaveData";
-  SaveData saveData;
+  public SaveData saveData;
+
+  public static SaveManager instance;
+
+  private void Awake()
+  {
+    if (instance == null)
+    {
+      instance = this;
+    }
+  }
 
   void Save()
   {
@@ -22,6 +32,14 @@ public class SaveManager : MonoBehaviour
       string json = PlayerPrefs.GetString(SAVE_KEY);
       saveData = JsonUtility.FromJson<SaveData>(json);
     }
+  }
+
+  // Itemを取得したフラグ。アイテムBOXに追加される
+  public void SetGetItemFlag(ItemManager.Item item)
+  {
+    int index = (int)item;
+    saveData.getItems[index] = true;
+    Save();
   }
 }
 
