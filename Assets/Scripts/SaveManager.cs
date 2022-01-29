@@ -19,6 +19,15 @@ public class SaveManager : MonoBehaviour
     }
   }
 
+  // ギミックフラグ列挙
+  public enum Flag
+  {
+    OpenedLocker01,
+    MovedTanuki,
+    OpenedLocker,
+    Max,
+  }
+
   void Save()
   {
     string json = JsonUtility.ToJson(saveData);
@@ -48,11 +57,26 @@ public class SaveManager : MonoBehaviour
     int index = (int)item;
     return saveData.getItems[index];
   }
+
+  public void SetGimmickFlag(Flag flag)
+  {
+    int index = (int)flag;
+    saveData.gimmick[index] = true;
+    Save();
+  }
+
+  public bool GetGimmickFlag(Flag flag)
+  {
+    int index = (int)flag;
+    return saveData.getItems[index];
+
+  }
 }
 
 [Serializable]
 public class SaveData
 {
   public bool[] getItems = new bool[(int)ItemManager.Item.Max];
-  public bool[] useItems = new bool[(int)ItemManager.Item.Max];
+  public bool[] useItems = new bool[(int)SaveManager.Flag.Max];
+  public bool[] gimmick = new bool[(int)SaveManager.Flag.Max];
 }
