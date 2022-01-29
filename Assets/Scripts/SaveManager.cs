@@ -18,6 +18,11 @@ public class SaveManager : MonoBehaviour
     }
   }
 
+  private void Start()
+  {
+    Load();
+  }
+
   void Save()
   {
     string json = JsonUtility.ToJson(saveData);
