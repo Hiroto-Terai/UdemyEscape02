@@ -15,12 +15,8 @@ public class SaveManager : MonoBehaviour
     if (instance == null)
     {
       instance = this;
+      Load();
     }
-  }
-
-  private void Start()
-  {
-    Load();
   }
 
   void Save()
@@ -45,6 +41,12 @@ public class SaveManager : MonoBehaviour
     int index = (int)item;
     saveData.getItems[index] = true;
     Save();
+  }
+
+  public bool GetGetItemFlag(ItemManager.Item item)
+  {
+    int index = (int)item;
+    return saveData.getItems[index];
   }
 }
 

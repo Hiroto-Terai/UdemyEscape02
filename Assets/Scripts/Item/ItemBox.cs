@@ -23,6 +23,9 @@ public class ItemBox : MonoBehaviour
     {
       boxes[i].SetActive(false);
     }
+    // セーブデータがあると表示
+    // セーブデータを取得する必要あり
+    
   }
 
   public void SetItem(ItemManager.Item item)
