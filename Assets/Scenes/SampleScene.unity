@@ -4149,6 +4149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38bc63f54781a4c1eb36297b84f914ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveData:
+    getItems: 0000000000
+    useItems: 0000000000
+    gimmick: 000000
 --- !u!4 &1243944408
 Transform:
   m_ObjectHideFlags: 0
@@ -4903,6 +4907,7 @@ GameObject:
   - component: {fileID: 1731822249}
   - component: {fileID: 1731822251}
   - component: {fileID: 1731822250}
+  - component: {fileID: 1731822252}
   m_Layer: 5
   m_Name: Safe
   m_TagString: Untagged
@@ -4975,8 +4980,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1731822251}
-        m_TargetAssemblyTypeName: Safe, Assembly-CSharp
+      - m_Target: {fileID: 1731822252}
+        m_TargetAssemblyTypeName: Locker, Assembly-CSharp
         m_MethodName: OnThis
         m_Mode: 1
         m_Arguments:
@@ -4997,6 +5002,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f57e6d55b0e904c7ba9e7fc3aa544ec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openObj: {fileID: 130528466}
+--- !u!114 &1731822252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731822248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab2bb39bd3864859aad0259b5bb0938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   openObj: {fileID: 130528466}

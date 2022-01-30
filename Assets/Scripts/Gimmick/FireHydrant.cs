@@ -20,6 +20,16 @@ public class FireHydrant : MonoBehaviour
   // 正解の連続入力: 右、左、左、右、右
   Direction[] correctAnswer = { Direction.Right, Direction.Left, Direction.Left, Direction.Right, Direction.Right };
 
+  private void Start()
+  {
+    bool clearGimmick = SaveManager.instance.GetGimmickFlag(SaveManager.Flag.OpenedFireHydrant);
+    if (clearGimmick)
+    {
+      openObj.SetActive(true);
+    }
+  }
+
+
   // 入力
   public void OnButton(int type)
   {
@@ -74,6 +84,7 @@ public class FireHydrant : MonoBehaviour
   void Clear()
   {
     openObj.SetActive(true);
+    SaveManager.instance.SetGimmickFlag(SaveManager.Flag.OpenedFireHydrant);
     Debug.Log("クリア!!");
   }
 }

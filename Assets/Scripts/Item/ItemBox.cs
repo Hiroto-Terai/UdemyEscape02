@@ -14,19 +14,24 @@ public class ItemBox : MonoBehaviour
     {
       instance = this;
     }
-  }
 
-  private void Start()
-  {
     // 最初に全てのアイテムを非表示
     for (int i = 0; i < boxes.Length; i++)
     {
       boxes[i].SetActive(false);
     }
     // セーブデータがあると表示
-    // セーブデータを取得する必要あり
-    
   }
+
+  // private void Start()
+  // {
+  //   // 最初に全てのアイテムを非表示
+  //   for (int i = 0; i < boxes.Length; i++)
+  //   {
+  //     boxes[i].SetActive(false);
+  //   }
+  //   // セーブデータがあると表示
+  // }
 
   public void SetItem(ItemManager.Item item)
   {
@@ -49,5 +54,6 @@ public class ItemBox : MonoBehaviour
   {
     int index = (int)item;
     boxes[index].SetActive(false);
+    SaveManager.instance.SetUseItemFlag(item);
   }
 }

@@ -19,8 +19,12 @@ public class ItemManager : MonoBehaviour
   {
     // すでに取得しているなら表示しない
     bool hasItem = SaveManager.instance.GetGetItemFlag(item);
-    // クリックされた時に、
-    if (hasItem)
+    bool usedItem = SaveManager.instance.GetUseItemFlag(item);
+    if (usedItem)
+    {
+      gameObject.SetActive(false);
+    }
+    else if (hasItem)
     {
       SetToItemBox();
     }

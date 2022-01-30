@@ -24,7 +24,11 @@ public class SaveManager : MonoBehaviour
   {
     OpenedLocker01,
     MovedTanuki,
+    MovedTeaServer,
     OpenedLocker,
+    BrokenPig,
+    OpenedFireHydrant,
+    OpenedElavor,
     Max,
   }
 
@@ -58,6 +62,19 @@ public class SaveManager : MonoBehaviour
     return saveData.getItems[index];
   }
 
+  public void SetUseItemFlag(ItemManager.Item item)
+  {
+    int index = (int)item;
+    saveData.useItems[index] = true;
+    Save();
+  }
+
+  public bool GetUseItemFlag(ItemManager.Item item)
+  {
+    int index = (int)item;
+    return saveData.useItems[index];
+  }
+
   public void SetGimmickFlag(Flag flag)
   {
     int index = (int)flag;
@@ -68,7 +85,7 @@ public class SaveManager : MonoBehaviour
   public bool GetGimmickFlag(Flag flag)
   {
     int index = (int)flag;
-    return saveData.getItems[index];
+    return saveData.gimmick[index];
 
   }
 }
@@ -77,6 +94,6 @@ public class SaveManager : MonoBehaviour
 public class SaveData
 {
   public bool[] getItems = new bool[(int)ItemManager.Item.Max];
-  public bool[] useItems = new bool[(int)SaveManager.Flag.Max];
+  public bool[] useItems = new bool[(int)ItemManager.Item.Max];
   public bool[] gimmick = new bool[(int)SaveManager.Flag.Max];
 }
